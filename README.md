@@ -72,7 +72,13 @@
      * https://www.innoq.com/de/talks/2019/05/commit-message-101/
      * https://github.com/GitAlias/gitalias/blob/main/gitalias.txt
      * https://education.github.com/git-cheat-sheet-education.pdf
-     
+  
+  1. Jenkins - Installation 
+     * [Installation of Linux - Agent - Docker](jenkins/agent-with-docker-linux.md)
+  
+  
+  
+  
 ## Backlog  
 
   1. Installation 
