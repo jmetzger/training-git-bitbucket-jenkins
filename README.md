@@ -7,6 +7,7 @@
      
   1. Commands (with tipps & tricks) 
      * [git add + Tipps & Tricks](add.md)
+     * [git alias with multiple commands](alias.md) 
      * [git commit](commit.md)
      * [git log](log.md)
      * [git config](config.md) 
