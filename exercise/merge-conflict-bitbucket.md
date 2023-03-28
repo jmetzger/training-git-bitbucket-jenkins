@@ -4,7 +4,7 @@
 
 ```
 1. You are in master-branch
-2. Checkout new branch feature/<name>
+2. Checkout new branch feature/<name><nr>
 3. Change todo.txt mindestens Zeile 1 -> änderung 
 4. git add -A; git commit -am "aenderung"
 5. git push -> feature 
