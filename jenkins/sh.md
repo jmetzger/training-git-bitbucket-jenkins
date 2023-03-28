@@ -21,3 +21,28 @@ pipeline {
     }
 }
 ```
+
+## Example 2 - multiline sh 
+
+```
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                echo 'good good'
+                sh'''
+                  pwd
+                  ls -la
+                  ls -la > test3.txt
+                  ls -la test2.txt
+                  cat test2.txt
+                '''
+            }
+        }
+    }
+}
+
+```
