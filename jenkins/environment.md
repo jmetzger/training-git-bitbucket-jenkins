@@ -1,6 +1,6 @@
 # Define environment vars within pipeline 
 
-
+```
 pipeline {
     agent any
     // for all stages 
@@ -29,3 +29,4 @@ pipeline {
         
     }
 }
+```
