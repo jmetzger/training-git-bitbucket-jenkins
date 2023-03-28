@@ -2,6 +2,11 @@
 
 ## Declarative vs. Scripted
 
+### Übersicht 
+
+![Schaubild](https://www.jenkins.io/doc/book/resources/pipeline/realworld-pipeline-flow.png)
+
+
 ### Example Scripted 
 
 ```
