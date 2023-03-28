@@ -90,6 +90,22 @@ systemctl enable jenkins-agent
 
 ```
 
+## Step 2: neuen Agent in jenkins anlegen 
+
+
+
+
+## Step 3: java-Client in install-agent.sh /usr/local/jenkins-agent installieren und rechte setzen 
+
+```
+# Achtung ip und anderen schlüssel
+
+
+
+
+```
+
+
   * https://www.jenkins.io/blog/2022/12/27/run-jenkins-agent-as-a-service/
 
 
