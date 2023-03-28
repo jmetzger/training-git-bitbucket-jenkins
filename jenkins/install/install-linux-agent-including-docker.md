@@ -99,10 +99,34 @@ systemctl enable jenkins-agent
 
 ```
 # Achtung ip und anderen schlüssel
+# also root
+cd /usr/local/jenkins-service
+vi start-agent.sh 
+```
 
 
+```
+# Example you get from you jenkins 
+# under new node 
 
+```
 
+```
+#!/bin/bash
+cd /usr/local/jenkins-service
+# Just in case we would have upgraded the controller, we need to make sure that the agent is using the latest version of the agent.jar
+curl -sO http://my_ip:8080/jnlpJars/agent.jar
+java -jar agent.jar -jnlpUrl http://my_ip:8080/computer/My%20New%20Ubuntu%2022%2E04%20Node%20with%20Java%20and%20Docker%20installed/jenkins-agent.jnlp -secret my_secret -workDir "/home/jenkins"
+exit 0
+
+```
+
+```
+chmod u+x start-agent.sh 
+chown -R jenkins:jenkins /usr/local/jenkins-agent
+chown -R jenkins:jenkins /home/jenkins 
+systemctl start jenkins-agent 
+systemctl status jenkins-agent
 ```
 
 
