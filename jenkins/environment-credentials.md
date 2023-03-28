@@ -5,17 +5,24 @@ pipeline {
   agent any
   
   environment {
-    USER=credentials('access_user')  
+    DOCKER=credentials('docker-login')  
   }
   
   stages {
      stage ('build'){
        steps {
-         echo "$USER_PSW"
-         echo "$USER_USR"
+         echo "$DOCKER_USR"
+         echo "$DOCKER_PSW"
          sh 'echo hallo pass: $USER_PSW'
          sh 'echo hallo usr: $USER_USR'
          sh 'env'
+         
+         echo "${DOCKER_USR}"
+         echo "${DOCKER_PSW}"
+         
+         echo  "${env.DOCKER_USR}"
+         
+         echo "$DOCKER_USR"
          
        }    
        
