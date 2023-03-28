@@ -14,6 +14,8 @@ pipeline {
                 sh 'pwd'
                 sh 'ls -la'
                 sh 'ls -la > test.txt'
+                sh 'ls -la test.txt'
+                sh 'cat test.txt'
             }
         }
     }
