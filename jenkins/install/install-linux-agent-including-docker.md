@@ -88,3 +88,5 @@ systemctl daemon-reload
 systemctl enable jenkins-agent 
 
 ```
+
+  * https://www.jenkins.io/blog/2022/12/27/run-jenkins-agent-as-a-service/
