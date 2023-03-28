@@ -1,4 +1,4 @@
-# GIT-Training 
+# GIT-Bitbucket-Jenkins-Training 
 
 ## Agenda 
 
