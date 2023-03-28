@@ -75,6 +75,7 @@
      * https://education.github.com/git-cheat-sheet-education.pdf
   
   1. Jenkins - Installation 
+     * [Installation of Jenkins Server (Controller)](/jenkins/install)
      * [Installation of Linux - Agent - Docker](jenkins/agent-with-docker-linux.md)
   
   
