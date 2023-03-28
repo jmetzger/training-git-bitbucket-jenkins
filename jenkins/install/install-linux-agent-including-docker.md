@@ -92,7 +92,7 @@ systemctl enable jenkins-agent
 
 ## Step 2: neuen Agent in jenkins anlegen 
 
-
+  * http://164.90.173.76:8080/computer/
 
 
 ## Step 3: java-Client in install-agent.sh /usr/local/jenkins-agent installieren und rechte setzen 
