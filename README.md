@@ -76,7 +76,7 @@
   
   1. Jenkins - Installation 
      * [Installation of Jenkins Server (Controller)](/jenkins/install)
-     * [Installation of Linux - Agent - Docker](jenkins/agent-with-docker-linux.md)
+     * [Installation of Linux - Agent - Docker](/jenkins/install/install-linux-agent-including-docker.md)
      
   1. Jenkins - Backup 
      * [Backup / Restore](jenkins/backup/general.md)
