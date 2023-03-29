@@ -81,8 +81,10 @@
   1. Jenkins - Backup 
      * [Backup / Restore](jenkins/backup/general.md)
    
-  1. Jenkins - Pipeline 
+  1. Jenkins - Declarative Pipeline 
+     * [Comments](jenkins/comments.md)
      * [Credentials in Umgebungsvariablen anzeigen](jenkins/environment-credentials.md)
+     
   
 ## Backlog  
 
