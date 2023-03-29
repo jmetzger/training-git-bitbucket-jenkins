@@ -123,7 +123,7 @@ exit 0
 
 ```
 chmod u+x start-agent.sh 
-chown -R jenkins:jenkins /usr/local/jenkins-agent
+chown -R jenkins:jenkins /usr/local/jenkins-service
 chown -R jenkins:jenkins /home/jenkins 
 systemctl start jenkins-agent 
 systemctl status jenkins-agent
