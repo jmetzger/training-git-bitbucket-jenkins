@@ -18,11 +18,7 @@
      * [git merge](merge.md)
      * [git tag](tag.md)
      * [git rm (Dateien löschen aus git)](rm.md)
-   
-  1. Erweiterte Commands 
-     * [git reflog](reflog.md) 
-     * [git reset - Back in Time](reset.md)   
-     
+       
   1. Tips & tricks 
      * [Beautified log](beautify-log.md)
      * [Change already committed files and message](commit-amend.md) 
@@ -91,4 +87,8 @@
   1. Installation 
      * [GIT auf Ubuntu/Debian installieren](installation-ubuntu-debian.md)
      * [GIT unter Windows installieren](https://git-scm.com/download/win)
+
+  1. Erweiterte Commands 
+     * [git reflog](reflog.md) 
+     * [git reset - Back in Time](reset.md)   
   
