@@ -87,7 +87,7 @@
      * [Credentials in Umgebungsvariablen anzeigen](jenkins/environment-credentials.md)
      * [Run on docker agent](/jenkins/agent-docker.md)     
      * [Cleanup after pipeline run/job](/jenkins/cleanup-after-run.md)
-     * [Change variable with pipeline](/jenkins/pass-variable.md)
+     * [Change variable within stage in pipeline](/jenkins/pass-variable.md)
      
 ## Backlog  
 
