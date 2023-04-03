@@ -77,11 +77,18 @@
   1. Jenkins - Backup 
      * [Backup / Restore](jenkins/backup/general.md)
    
+  1. Jenkins - Pipelines 
+     * [Declarative vs. Scripted](/jenkins/pipelines.md)
+  
   1. Jenkins - Declarative Pipeline 
      * [Comments](jenkins/comments.md)
+     * [Working with shell-commands](/jenkins/sh.md)
+     * [Work with environment variables](jenkins/environment.md)
      * [Credentials in Umgebungsvariablen anzeigen](jenkins/environment-credentials.md)
      * [Run on docker agent](/jenkins/agent-docker.md)     
-  
+     * [Cleanup after pipeline run/job](/jenkins/cleanup-after-run.md)
+     * [Change variable with pipeline](/jenkins/pass-variable.md)
+     
 ## Backlog  
 
   1. Installation 
