@@ -81,10 +81,10 @@
      * [Declarative vs. Scripted](/jenkins/pipelines.md)
   
   1. Jenkins - Declarative Pipeline 
-     * [Comments](jenkins/comments.md)
+     * [Comments](/jenkins/comments.md)
      * [Working with shell-commands](/jenkins/sh.md)
-     * [Work with environment variables](jenkins/environment.md)
-     * [Credentials in Umgebungsvariablen anzeigen](jenkins/environment-credentials.md)
+     * [Work with environment variables](/jenkins/environment.md)
+     * [Credentials in Umgebungsvariablen anzeigen](/jenkins/environment-credentials.md)
      * [Run on docker agent](/jenkins/agent-docker.md)     
      * [Cleanup after pipeline run/job](/jenkins/cleanup-after-run.md)
      * [Change variable within stage in pipeline](/jenkins/pass-variable.md)
