@@ -2,10 +2,10 @@
 
 ## Agenda 
 
-  1. Geschichte / Grundlagen 
+ 1. Geschichte / Grundlagen 
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf)
      
-  1. Commands (with tipps & tricks) 
+ 1. Commands (with tipps & tricks) 
      * [git add + Tipps & Tricks](add.md)
      * [git alias with multiple commands](alias.md) 
      * [git commit](commit.md)
@@ -19,7 +19,7 @@
      * [git tag](tag.md)
      * [git rm (Dateien löschen aus git)](rm.md)
        
-  1. Tips & tricks 
+ 1. Tips & tricks 
      * [Beautified log](beautify-log.md)
      * [Change already committed files and message](commit-amend.md) 
      * [Best practice - Delete origin,tracking and local branch after pull request/merge request](best-practice-delete-branch.md)
@@ -32,33 +32,33 @@
      * [Force specfic commit message](pre-receive-hook.md)
      * [Alle Dateien, die sich geändert haben anzeigen z.B. heute](files-changed-today.md)
   
-  1. Exercises 
+ 1. Exercises 
      * [merge feature/4712 - conflict](merge-conflict.md)
      * [merge request with bitbucket](merge-request.md)
      * [Exercise with cherry-picking](/exercises/cherry-pick.md)
   
-  1. Snippets 
+ 1. Snippets 
      * [publish lokal repo to server - bitbucket](local-public.md)
      * [failure-on-push-fix](failure-push.md)
      * [failure-on-push-with-conflict](failure-push-conflict.md)
      
-  1. Extras 
+ 1. Extras 
      * [Best practices](bp.md) 
      * [Using a mergetool to solve conflicts](mergetools.md)
      * [Overview GIT-Servers](git-server.md)
      * [4 goldene Regeln](goldene-regeln.md)
   
-  1. Help
+ 1. Help
      * [Help from commandline](help.md)
    
-  1. subtrees / submodules 
+ 1. subtrees / submodules 
      * [substrees](subtree.md)
      * [submodules](submodules.md)
    
-  1. Authentication 
+ 1. Authentication 
      * [Work with different credentials](credential-helper.md)
    
-  1. Documentation 
+ 1. Documentation 
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf) 
      * [GIT Book EN](https://git-scm.com/book/en/v2)
      * [GIT Book DE](https://git-scm.com/book/de/v2)
@@ -70,17 +70,17 @@
      * https://github.com/GitAlias/gitalias/blob/main/gitalias.txt
      * https://education.github.com/git-cheat-sheet-education.pdf
   
-  1. Jenkins - Installation 
+ 1. Jenkins - Installation 
      * [Installation of Jenkins Server (Controller)](/jenkins/install)
      * [Installation of Linux - Agent - Docker](/jenkins/install/install-linux-agent-including-docker.md)
      
-  1. Jenkins - Backup 
+ 1. Jenkins - Backup 
      * [Backup / Restore](jenkins/backup/general.md)
    
-  1. Jenkins - Pipelines 
+ 1. Jenkins - Pipelines 
      * [Declarative vs. Scripted](/jenkins/pipelines.md)
   
-  1. Jenkins - Declarative Pipeline 
+ 1. Jenkins - Declarative Pipeline 
      * [Comments](/jenkins/comments.md)
      * [Working with shell-commands](/jenkins/sh.md)
      * [Work with environment variables](/jenkins/environment.md)
@@ -91,11 +91,11 @@
      
 ## Backlog  
 
-  1. Installation 
+ 1. Installation 
      * [GIT auf Ubuntu/Debian installieren](installation-ubuntu-debian.md)
      * [GIT unter Windows installieren](https://git-scm.com/download/win)
 
-  1. Erweiterte Commands 
+ 1. Erweiterte Commands 
      * [git reflog](reflog.md) 
      * [git reset - Back in Time](reset.md)   
   
