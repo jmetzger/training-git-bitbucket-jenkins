@@ -78,7 +78,7 @@
      * [Backup / Restore](jenkins/backup/general.md)
    
  1. Jenkins - Pipelines 
-     * [Declarative vs. Scripted](/jenkins/pipelines.md)
+     * [Declarative vs. Scripted](/jenkins/pipelinxes.md)
   
  1. Jenkins - Declarative Pipeline 
      * [Comments](/jenkins/comments.md)
