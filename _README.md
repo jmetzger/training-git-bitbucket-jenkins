@@ -1,12 +1,13 @@
-# GIT-Training 
+# GIT-Bitbucket-Jenkins-Training 
 
 
 ## Agenda
-  1. Geschichte / Grundlagen 
+ 1. Geschichte / Grundlagen 
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf)
      
-  1. Commands (with tipps & tricks) 
+ 1. Commands (with tipps & tricks) 
      * [git add + Tipps & Tricks](#git-add-+-tipps--tricks)
+     * [git alias with multiple commands](#git-alias-with-multiple-commands)
      * [git commit](#git-commit)
      * [git log](#git-log)
      * [git config](#git-config)
@@ -17,12 +18,8 @@
      * [git merge](#git-merge)
      * [git tag](#git-tag)
      * [git rm (Dateien löschen aus git)](#git-rm-dateien-löschen-aus-git)
-   
-  1. Advanced Commands 
-     * [git reflog](#git-reflog)
-     * [git reset - Back in Time](#git-reset---back-in-time)
-     
-  1. Tips & tricks 
+       
+ 1. Tips & tricks 
      * [Beautified log](#beautified-log)
      * [Change already committed files and message](#change-already-committed-files-and-message)
      * [Best practice - Delete origin,tracking and local branch after pull request/merge request](#best-practice---delete-origintracking-and-local-branch-after-pull-requestmerge-request)
@@ -35,32 +32,33 @@
      * [Force specfic commit message](#force-specfic-commit-message)
      * [Alle Dateien, die sich geändert haben anzeigen z.B. heute](#alle-dateien-die-sich-geändert-haben-anzeigen-zb-heute)
   
-  1. Exercises 
+ 1. Exercises 
      * [merge feature/4712 - conflict](#merge-feature4712---conflict)
      * [merge request with bitbucket](#merge-request-with-bitbucket)
      * [Exercise with cherry-picking](#exercise-with-cherry-picking)
   
-  1. Snippets 
+ 1. Snippets 
      * [publish lokal repo to server - bitbucket](#publish-lokal-repo-to-server---bitbucket)
      * [failure-on-push-fix](#failure-on-push-fix)
      * [failure-on-push-with-conflict](#failure-on-push-with-conflict)
      
-  1. Extras 
+ 1. Extras 
      * [Best practices](#best-practices)
      * [Using a mergetool to solve conflicts](#using-a-mergetool-to-solve-conflicts)
      * [Overview GIT-Servers](#overview-git-servers)
      * [4 goldene Regeln](#4-goldene-regeln)
   
-  1. Help
+ 1. Help
      * [Help from commandline](#help-from-commandline)
    
-  1. subtrees
+ 1. subtrees / submodules 
      * [substrees](#substrees)
+     * [submodules](#submodules)
    
-  1. Authentication 
+ 1. Authentication 
      * [Work with different credentials](#work-with-different-credentials)
    
-  1. Documentation 
+ 1. Documentation 
      * [GIT Pdf](http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf)
      * [GIT Book EN](https://git-scm.com/book/en/v2)
      * [GIT Book DE](https://git-scm.com/book/de/v2)
@@ -71,23 +69,42 @@
      * https://www.innoq.com/de/talks/2019/05/commit-message-101/
      * https://github.com/GitAlias/gitalias/blob/main/gitalias.txt
      * https://education.github.com/git-cheat-sheet-education.pdf
+  
+ 1. Jenkins - Installation 
+     * [Installation of Jenkins Server (Controller)](#installation-of-jenkins-server-controller)
+     * [Installation of Linux - Agent - Docker](#installation-of-linux---agent---docker)
+     
+ 1. Jenkins - Backup 
+     * [Backup / Restore](#backup--restore)
+   
+ 1. Jenkins - Pipelines 
+     * [Declarative vs. Scripted](#declarative-vs-scripted)
+  
+ 1. Jenkins - Declarative Pipeline 
+     * [Comments](#comments)
+     * [Working with shell-commands](#working-with-shell-commands)
+     * [Work with environment variables](#work-with-environment-variables)
+     * [Credentials in Umgebungsvariablen anzeigen](#credentials-in-umgebungsvariablen-anzeigen)
+     * [Run on docker agent](#run-on-docker-agent)
+     * [Cleanup after pipeline run/job](#cleanup-after-pipeline-runjob)
+     * [Change variable within stage in pipeline](#change-variable-within-stage-in-pipeline)
      
 ## Backlog  
 
-  1. Installation 
+ 1. Installation 
      * [GIT auf Ubuntu/Debian installieren](#git-auf-ubuntudebian-installieren)
      * [GIT unter Windows installieren](https://git-scm.com/download/win)
+
+ 1. Erweiterte Commands 
+     * [git reflog](#git-reflog)
+     * [git reset - Back in Time](#git-reset---back-in-time)
   
 
 <div class="page-break"></div>
 
-## Geschichte / Grundlagen 
-
 ### GIT Pdf
 
   * http://schulung.t3isp.de/documents/pdfs/git/git-training.pdf
-
-## Commands (with tipps & tricks) 
 
 ### git add + Tipps & Tricks
 
@@ -102,6 +119,16 @@ git add .
 ### Fix -A 
 ## adds everything no matter in which folder you are in your project 
 git add -A 
+```
+
+### git alias with multiple commands
+
+
+### Multiple commands in one alias 
+
+```
+git config --global alias.ac '!git add . && git commit -am'
+
 ```
 
 ### git commit
@@ -317,47 +344,6 @@ git pull --rebase --tags
 ```
 git rm --cached dateiname 
 ```
-
-## Advanced Commands 
-
-### git reflog
-
-
-### command
-
-  * show everything you (last 30 days), also stuff that is not visible in branch anymore 
-
-### Example 
-
-```
-git reflog 
-```
-
-### when many entries a pager like less (aka man less) will be used 
-
-```
-## you can get out of the page with pressing the key 'q' 
-
-```
-
-### git reset - Back in Time
-
-
-
-### Why ? 
-
-  * Back in time -> reset
-  * e.g. git reset –-hard e2d5  
-  * attention: only use it, when changes are not published (remotely) yet.
-  * → It is your command, IN CASE your are telling yourself, omg, what's that, what did i do here, let me undo that
-
-### Example 
-
-```
-git reset --hard 2343 
-```
-
-## Tips & tricks 
 
 ### Beautified log
 
@@ -609,8 +595,6 @@ for i in $(git log --after="2022-09-26" --before="2022-09-27" --pretty=format:""
 git log --after="2022-09-26" --before="2022-09-27" --pretty=format:"" --follow -p -- todo.txt
 ```
 
-## Exercises 
-
 ### merge feature/4712 - conflict
 
 
@@ -618,13 +602,13 @@ git log --after="2022-09-26" --before="2022-09-27" --pretty=format:"" --follow -
 
 ```
 1. You are in master-branch
-2. Checkout new branch feature/4712 
-3. Change line1 in todo.txt 
-4. git add -A; git commit -am "feature-4712 done"
+2. Checkout new branch feature/4714
+3. Change name: in playbook.yml
+4. git add -A; git commit -am "feature-4714 done"
 5. Change to master 
-6. Change line1 in todo.txt 
-7. git add -A; git commit -am "change line1 in todo.txt in master" 
-8. git merge feature/4712 
+6. Change name in playbook.yml in todo.txt 
+7. git add -A; git commit -am "change name in playbook.yml in master" 
+8. git merge feature/4714
 ```
 
 ### merge request with bitbucket
@@ -681,8 +665,6 @@ git pull --rebase
 
 ```
 
-## Snippets 
-
 ### publish lokal repo to server - bitbucket
 
  
@@ -710,7 +692,7 @@ git pull --rebase
 git push
 Password for 'https://erding2017@bitbucket.org':
 To https://bitbucket.org/erding2017/git-remote-jochen.git
- ! [rejected](fetch first)
+ ! [rejected]        master -> master (fetch first)
 error: failed to push some refs to 'https://erding2017@bitbucket.org/erding2017/git-remote-jochen.git'
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally. This is usually caused by another repository pushing
@@ -736,7 +718,7 @@ git push
 git push
 Password for 'https://erding2017@bitbucket.org':
 To https://bitbucket.org/erding2017/git-remote-jochen.git
- ! [rejected](fetch first)
+ ! [rejected]        master -> master (fetch first)
 ....
 ## Step 2: Integrate changes from online 
 git pull
@@ -781,8 +763,6 @@ git add todo.txt
 git commit 
 git push 
 ```
-
-## Extras 
 
 ### Best practices
 
@@ -976,8 +956,6 @@ Cons: Mo multi-user interaction
   * rebase nur wenn branch / commit noch nicht veröffentlicht 
 ```
 
-## Help
-
 ### Help from commandline
 
 
@@ -992,8 +970,6 @@ git help log
 ## --> a webpage will open with content 
 
 ```
-
-## subtrees
 
 ### substrees
 
@@ -1035,7 +1011,28 @@ git subtree push --prefix=training training-git main
 
   * https://www.atlassian.com/git/tutorials/git-subtree
 
-## Authentication 
+### submodules
+
+
+### Best practive 
+
+```
+clone repo use for submodule seperately
+(in seperate folder)
+if you want to change it
+```
+
+### Updating commands for updating subfolder 
+
+```
+git submodule update --remote 
+## use other branch from submodule then master 
+git config -f .gitmodules submodule.DbConnector.branch stable
+```
+
+### Ref.
+
+  * https://git-scm.com/book/de/v2/Git-Tools-Submodule
 
 ### Work with different credentials
 
@@ -1043,8 +1040,6 @@ git subtree push --prefix=training training-git main
 ### Ref:
 
 https://de.linkedin.com/pulse/mehrere-gitlabgithub-accounts-bzw-ssh-keys-zum-host-mit-mindermann
-
-## Documentation 
 
 ### GIT Pdf
 
@@ -1089,7 +1084,425 @@ https://de.linkedin.com/pulse/mehrere-gitlabgithub-accounts-bzw-ssh-keys-zum-hos
 
   * https://www.conventionalcommits.org/en/v1.0.0/
 
-## Installation 
+### Installation of Jenkins Server (Controller)
+
+### Installation of Linux - Agent - Docker
+
+
+### Step 1: Create new machine (virtual machine) 
+
+```
+##!/bin/bash
+
+##### This need to be run as root 
+
+groupadd sshadmin
+USERS="11trainingdo"
+echo $USERS
+for USER in $USERS
+do
+  echo "Adding user $USER"
+  useradd -s /bin/bash --create-home $USER
+  usermod -aG sshadmin $USER
+  echo "$USER:11dortmund22" | chpasswd
+done
+
+## We can sudo with 11trainingdo
+usermod -aG sudo 11trainingdo 
+
+## 20.04 and 22.04 this will be in the subfolder
+if [ -f /etc/ssh/sshd_config.d/50-cloud-init.conf ]
+then
+  sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config.d/50-cloud-init.conf
+fi
+
+### both is needed 
+sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+
+usermod -aG sshadmin root
+
+## TBD - Delete AllowUsers Entries with sed 
+## otherwice we cannot login by group 
+
+echo "AllowGroups sshadmin" >> /etc/ssh/sshd_config 
+systemctl reload sshd 
+
+#### Now the docker / jenkins part 
+
+apt-get update
+apt install -y --no-install-recommends openjdk-17-jdk-headless
+
+## adding jenkins user 
+useradd -m -s /bin/bash jenkins 
+
+## needed for installation of agent.jar
+apt-get install -y ca-certificates curl gnupg lsb-release
+
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+apt-get update
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+## groupadd docker 
+usermod -aG docker jenkins
+usermod -aG sudo jenkins
+
+### Alreaday install the service, although we need to do some manual steps 
+mkdir -p /usr/local/jenkins-service
+chown jenkins /usr/local/jenkins-service
+
+cat << EOF > /etc/systemd/system/jenkins-agent.service
+
+[Unit]
+Description=Jenkins Agent
+
+[Service]
+User=jenkins
+WorkingDirectory=/home/jenkins
+ExecStart=/bin/bash /usr/local/jenkins-service/start-agent.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+
+
+## not sure, if daemon-reload is really needed on ubuntu 22.04 LTS 
+systemctl daemon-reload
+systemctl enable jenkins-agent 
+
+```
+
+### Step 2: neuen Agent in jenkins anlegen 
+
+  * http://164.90.173.76:8080/computer/
+
+
+### Step 3: java-Client in install-agent.sh /usr/local/jenkins-agent installieren und rechte setzen 
+
+```
+## Achtung ip und anderen schlüssel
+## also root
+cd /usr/local/jenkins-service
+vi start-agent.sh 
+```
+
+
+```
+## Example you get from you jenkins 
+## under new node 
+
+```
+
+```
+##!/bin/bash
+cd /usr/local/jenkins-service
+## Just in case we would have upgraded the controller, we need to make sure that the agent is using the latest version of the agent.jar
+curl -sO http://my_ip:8080/jnlpJars/agent.jar
+java -jar agent.jar -jnlpUrl http://my_ip:8080/computer/My%20New%20Ubuntu%2022%2E04%20Node%20with%20Java%20and%20Docker%20installed/jenkins-agent.jnlp -secret my_secret -workDir "/home/jenkins"
+exit 0
+
+```
+
+```
+chmod u+x start-agent.sh 
+chown -R jenkins:jenkins /usr/local/jenkins-service
+chown -R jenkins:jenkins /home/jenkins 
+systemctl start jenkins-agent 
+systemctl status jenkins-agent
+```
+
+
+  * https://www.jenkins.io/blog/2022/12/27/run-jenkins-agent-as-a-service/
+
+
+
+
+### Backup / Restore
+
+
+```
+- Es gibt keine Datenbanken
+- Es ist alles in files 
+- Heimatverzeichnis vom Controller sichern 
+(in paar Verzeichnisse kann man dort ausschliessen)
+Key zur Verschlüsselung passwörter sollte getrennt aufbewahrt werden
+
+Details: https://www.jenkins.io/doc/book/system-administration/backing-up/
+```
+
+### Declarative vs. Scripted
+
+### Comments
+
+
+```
+// comment 
+```
+
+### Working with shell-commands
+
+
+### Example 1 - single lines sh 
+
+```
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                echo 'good good'
+                sh 'pwd'
+                sh 'ls -la'
+                sh 'ls -la > testx.txt'
+                sh 'ls -la testx.txt'
+                sh 'cat testx.txt'
+            }
+        }
+    }
+}
+```
+
+### Example 2 - multiline sh 
+
+```
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                echo 'good good'
+                sh'''
+                  pwd
+                  ls -la
+                  ls -la > test3.txt
+                  ls -la test2.txt
+                  cat test2.txt
+                '''
+            }
+        }
+    }
+}
+
+```
+
+### Work with environment variables
+
+
+```
+pipeline {
+    agent any
+    // for all stages 
+    environment { 
+        CC = 'clang'
+    }
+    stages {
+    
+        stage('Example') {
+            // for a specific stage
+            environment { 
+                MY_STAGE_ENV_VAR = 'Stage env var is this' 
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
+        
+        stage('Only toplevel stage'){
+            steps {
+                sh 'printenv'
+                sh 'env'
+            }
+        
+        }
+        
+    }
+}
+```
+
+### Credentials in Umgebungsvariablen anzeigen
+
+
+```
+pipeline {
+  agent any
+  
+  environment {
+    DOCKER=credentials('docker-login')  
+  }
+  
+  stages {
+     stage ('build'){
+       steps {
+         echo "$DOCKER_USR"
+         echo "$DOCKER_PSW"
+         sh 'echo hallo pass: $USER_PSW'
+         sh 'echo hallo usr: $USER_USR'
+         sh 'env'
+         
+         echo "${DOCKER_USR}"
+         echo "${DOCKER_PSW}"
+         
+         echo  "${env.DOCKER_USR}"
+         
+         echo "$DOCKER_USR"
+         
+       }    
+       
+       
+   
+     }
+   
+  } 
+  
+}
+
+
+```
+
+### Run on docker agent
+
+
+### Running docker / docker needs to be installed on agent
+
+```
+pipeline {
+    agent {
+        docker { image 'node:16.13.1-alpine' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+
+            }
+        }
+    }
+}
+```
+
+### Run on specific docker agents 
+
+```
+pipeline {
+    agent {
+        docker { 
+            image 'node:16.13.1-alpine'
+            label 'linux'
+            
+        }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+
+            }
+        }
+    }
+}
+
+
+```
+
+### Using different docker images in different stages
+
+```
+pipeline {
+    agent none
+    stages {
+        stage('Back-end') {
+            agent {
+                docker { image 'maven:3.9.0-eclipse-temurin-11' }
+            }
+            steps {
+                sh 'mvn --version'
+            }
+        }
+        stage('Front-end') {
+            agent {
+                docker { image 'node:16.13.1-alpine' }
+            }
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
+}
+```
+
+### Cleanup after pipeline run/job
+
+
+```
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                echo 'good good'
+                sh 'pwd'
+                sh 'ls -la'
+                sh 'ls -la > test.txt'
+                sh 'ls -la test.txt'
+                sh 'cat test.txt'
+            }
+        }
+    }
+    post {
+        // Clean after build
+        always {
+            cleanWs(cleanWhenNotBuilt: false,
+                    deleteDirs: true,
+                    disableDeferredWipeout: true,
+                    notFailBuild: true,
+                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+                               [pattern: '.propsfile', type: 'EXCLUDE'],
+                               [pattern: 'test.txt', type: 'INCLUDE']])
+        }
+    }
+       
+}
+```
+
+### Change variable within stage in pipeline
+
+
+```
+def animal="cat"
+pipeline {
+  agent any
+  stages {
+    stage("hello") {
+      steps {
+        script {
+          echo animal
+          animal = "dog";
+        }
+      }
+    }
+    stage("goodbye") {
+      steps {
+        script {
+          echo animal
+        }
+      }
+    }
+  }
+}
+```
 
 ### GIT auf Ubuntu/Debian installieren
 
@@ -1124,3 +1537,40 @@ LANG=en_US.UTF-8
 ### GIT unter Windows installieren
 
   * https://git-scm.com/download/win
+
+### git reflog
+
+
+### command
+
+  * show everything you (last 30 days), also stuff that is not visible in branch anymore 
+
+### Example 
+
+```
+git reflog 
+```
+
+### when many entries a pager like less (aka man less) will be used 
+
+```
+## you can get out of the page with pressing the key 'q' 
+
+```
+
+### git reset - Back in Time
+
+
+
+### Why ? 
+
+  * Back in time -> reset
+  * e.g. git reset –-hard e2d5  
+  * attention: only use it, when changes are not published (remotely) yet.
+  * → It is your command, IN CASE your are telling yourself, omg, what's that, what did i do here, let me undo that
+
+### Example 
+
+```
+git reset --hard 2343 
+```
