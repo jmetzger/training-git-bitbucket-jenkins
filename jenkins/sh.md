@@ -13,9 +13,9 @@ pipeline {
                 echo 'good good'
                 sh 'pwd'
                 sh 'ls -la'
-                sh 'ls -la > test.txt'
-                sh 'ls -la test.txt'
-                sh 'cat test.txt'
+                sh 'ls -la > testx.txt'
+                sh 'ls -la testx.txt'
+                sh 'cat testx.txt'
             }
         }
     }
